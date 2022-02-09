@@ -142,18 +142,28 @@
             background-color: #F6CA22;
         }
 
-        .img_trabalhos {
-            height: 120px;
-            width: 120px;
-            transition-duration: 0.5s;
+        .home_grid{
+            padding: 50px;
         }
 
-        .img_trabalhos:hover {
-            transform: scale(1.2);
+        .trabalhos_show {
+            height: 420px;
+            transition-duration: 0.5s;
+            margin-bottom: 150px; 
+        }
+
+        .trabalhos_show:hover {
+            transform: scale(1.1);
+            z-index: 5 !important;
+        }
+
+        .img_trabalhos{
+            max-height: 420px;
+            max-width: 340px;
         }
 
         .img_trabalhos_show {
-            height: 480px;
+            height: 380px;
             width: 480px;
             margin: 5%;
             transition-duration: 0.5s;

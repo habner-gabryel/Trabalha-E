@@ -36,13 +36,13 @@
                 </div>
             </div>
             <br><br><hr>
-            <div class="scrolling_850px">
+            <div class="row d-flex justify-content-center home_grid">
                 @foreach ($trabalhos as $trabalho)
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-8 col-md-2">
+                    <a href="{{route ('trabalho_show',$trabalho->id)}}" class="col-3 trabalhos_show">
+                        <div class="row encapsulamento_img">
                             <img src="{{asset('imagens/trabalhos/'.$trabalho->image_url.".".$trabalho->image_type)}}" class="img_trabalhos">
                         </div>
-                        <div class="col-12 col-md-6 row d-flex justify-content-end">
+                        <div class="row">
                             <div class="col-12 col-md-5">
                                 <h5>{{$trabalho->nome}}</h5>
                             </div>
@@ -50,14 +50,7 @@
                                 <p>{{$trabalho->portfolio->user->nome}}</p>
                             </div>
                         </div>
-
-                        <div class="d-flex justify-content-end col-10 col-md-3">
-                            <a href="{{route ('trabalho_show',$trabalho->id)}}">
-                                <button class="btn btn-outline-info">Visualizar Informações</button>
-                            </a>
-                        </div>
-                    </div>
-                    <hr>
+                    </a>
                 @endforeach
             </div>
         </div>
