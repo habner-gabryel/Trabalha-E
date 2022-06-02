@@ -144,17 +144,30 @@
 
         .home_grid{
             padding: 50px;
+            align-content: initial;
         }
 
         .trabalhos_show {
             height: 420px;
+            width: 260px;
+            margin-left: 15px;
+            font-size: 12;
             transition-duration: 0.5s;
-            margin-bottom: 150px; 
+            margin-bottom: 60px; 
+            border: solid 1px grey;
+            background-color: RGB(250,250,250);
+            border-radius: 5px;
         }
 
         .trabalhos_show:hover {
             transform: scale(1.1);
-            z-index: 5 !important;
+            z-index: 2 !important;
+        }
+
+        .encapsulamento_img{
+            height: 250px;
+            padding: 5px;
+            width: 250px;
         }
 
         .img_trabalhos{
@@ -163,8 +176,8 @@
         }
 
         .img_trabalhos_show {
-            height: 380px;
-            width: 480px;
+            max-height: 480px;
+            max-width: 480px;
             margin: 5%;
             transition-duration: 0.5s;
         }
@@ -197,45 +210,73 @@
             text-decoration: none;
             padding-top: 10px;
         }
-        @media(max-width: 400px) {
+
+        @media(max-width: 500px) {
+            .home_grid{
+                padding: 0px;
+            }
+
             h1.title {
                 font-size: 22px;
             }
+
             h2.title {
                 font-size: 20px;
             }
+
             h3 {
                 font-size: 16px;
             }
+            
             .botoes {
                 font-size: 15px;
                 width: 140px;
             }
+
+            .trabalhos_show {
+                height: 420px;
+                width: 250px;
+                margin-left: 0px;
+            }
+
             .img_trabalhos {
-                margin:5%;
+                max-height: 240px;
+                max-width: 240px;           
             }
+
             .img_trabalhos_show {
-                height: 240px;
-                width: 240px;
+                max-height: 300px;
+                max-width: 300px;
             }
+
             select {
                 margin-bottom: 15px;
             }
+
             .botao_login {
                 margin-top:35px;
             }
+
             p, strong {
-            font-size: 14px;
+                font-size: 14px;
             }
+
             .tabela_propostas {
                 font-size: 10px;
                 transform: scale(1.1);
             }
+
             .description_texts {
                 margin-top: 200px;
             }
+
             .description_divs {
                 margin-bottom: 50px;
+            }
+        }
+        @media(max-width: 1280px){
+            .trabalhos_show {
+                margin-left: 50px;
             }
         }
     </style>
@@ -283,3 +324,11 @@
     </div>
 </body>
 </html>
+<script>
+    $('.carousel').slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+    });
+</script>

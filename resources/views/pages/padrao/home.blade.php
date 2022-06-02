@@ -36,17 +36,17 @@
                 </div>
             </div>
             <br><br><hr>
-            <div class="row d-flex justify-content-center home_grid">
+            <div class="row d-flex home_grid">
                 @foreach ($trabalhos as $trabalho)
-                    <a href="{{route ('trabalho_show',$trabalho->id)}}" class="col-3 trabalhos_show">
-                        <div class="row encapsulamento_img">
+                    <a href="{{route ('trabalho_show',$trabalho->id)}}" class="trabalhos_show">
+                        <div class="row encapsulamento_img carousel">
                             <img src="{{asset('imagens/trabalhos/'.$trabalho->image_url.".".$trabalho->image_type)}}" class="img_trabalhos">
                         </div>
                         <div class="row">
-                            <div class="col-12 col-md-5">
+                            <div class="col-12">
                                 <h5>{{$trabalho->nome}}</h5>
                             </div>
-                            <div class="col-10 col-md-5">
+                            <div class="col-10">
                                 <p>{{$trabalho->portfolio->user->nome}}</p>
                             </div>
                         </div>
