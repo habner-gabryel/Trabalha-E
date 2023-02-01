@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Padrao;
 
-use App\Categorias;
+use App\Models\Trabalhos\Categorias;
 use App\Http\Controllers\Controller;
-use App\Portfolios;
-use App\Trabalhos;
-use App\User;
+use App\Models\Trabalhos\Portfolios;
+use App\Models\Trabalhos\Trabalhos;
+use App\Models\Seguranca\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Trabalhador;
 
 use App\Http\Controllers\Controller;
-use App\Portfolios;
-use App\Proposta;
-use App\Trabalhos;
+use App\Models\Trabalhos\Portfolios;
+use App\Models\Trabalhos\Proposta;
+use App\Models\Trabalhos\Trabalhos;
 use DateTime;
 use Hamcrest\Core\HasToString;
 use Illuminate\Http\Request;

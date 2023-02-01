@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Trabalhos;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,6 +8,7 @@ class Portfolios extends Model
 {
     public $timestamps = false;
     public $table = "tb_portfolio";
+    protected $primaryKey = "id_portfolio";
 
     public function trabalhos()
     {

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Trabalhador;
 
-use App\Categorias;
+use App\Models\Trabalhos\Categorias;
 use App\Http\Controllers\Controller;
-use App\Portfolios;
-use App\Trabalhos;
+use App\Models\Trabalhos\Portfolios;
+use App\Models\Trabalhos\Trabalhos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,7 +44,16 @@ class PortfolioController extends Controller
 
         $trabalhos = Trabalhos::where("id_portfolio",$portf->id_portfolio)->get();
 
-        return view("pages/trabalhador/portfolio_show", compact("portf","trabalhos"));
+        
+
+        $data = array($portf->toArray());
+        
+        $data['trabalhos'] = $trabalhos->toArray();
+
+
+        return response()->json($trabalhos, 200);
+
+        // return view("pages/trabalhador/portfolio_show", compact("portf","trabalhos"));
     }
 
 }

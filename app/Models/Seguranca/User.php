@@ -1,6 +1,6 @@
 <?php
 
-namespace App;  
+namespace App\Models\Seguranca;  
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -10,6 +10,7 @@ class User extends Authenticatable
 {
     public $timestamps = false;
     protected $table="tb_usuario";
+    protected $primaryKey = "id_usuario";
 
     use Notifiable;
 

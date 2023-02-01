@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models\Trabalhos;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Proposta extends Model
 {
     public $table = "tb_proposta";
+    protected $primaryKey = "id_proposta";
 
     public function users()
     {

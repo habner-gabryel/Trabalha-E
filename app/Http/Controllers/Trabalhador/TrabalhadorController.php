@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Trabalhador;
 
-use App\Endereco;
+use App\Models\Seguranca\Endereco;
 use App\Http\Controllers\Controller;
-use App\Portfolios;
-use App\Proposta;
-use App\Trabalhos;
-use App\User;
+use App\Models\Trabalhos\Portfolios;
+use App\Models\Trabalhos\Proposta;
+use App\Models\Trabalhos\Trabalhos;
+use App\Models\Seguranca\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

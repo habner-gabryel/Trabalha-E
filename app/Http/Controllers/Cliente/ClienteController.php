@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Cliente;
 
-use App\Endereco;
+use App\Models\Seguranca\Endereco;
 use App\Http\Controllers\Controller;
-use App\Proposta;
-use App\User;
+use App\Models\Trabalhos\Proposta;
+use App\Models\Seguranca\User;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
