@@ -25,7 +25,7 @@ class TrabalhadorController extends Controller
 
         $this->validate($request, [
             'nome_completo' => 'required',
-            'email'         => 'required|email|unique:users',
+            'email'         => 'required|email|unique:tb_usuario',
             'telefone'      => 'required',
             'senha'         => 'required|min:8',
             'cidade'        => 'required',
@@ -39,10 +39,10 @@ class TrabalhadorController extends Controller
         $user = new User();
         $user->nome             = $request->nome_completo;
         $user->email            = $request->email;
-        $user->password         = Hash::make($request->senha);
+        $user->senha            = Hash::make($request->senha);
         $user->status           = 1;
         $user->celular          = $request->telefone;
-        $user->tipo_usuarios_id = 2;
+        $user->id_tipo_usuario  = 2;
         $user->save();
 
 
@@ -53,7 +53,7 @@ class TrabalhadorController extends Controller
         $endereco->rua          = $request->rua;
         $endereco->numero       = $request->num_casa;
         $endereco->complemento  = $request->complemento;
-        $endereco->users_id     = $user->id;
+        $endereco->id_usuario   = $user->id_usuario;
         $endereco->save();
 
         return redirect( route("login"))->with("sucesso", "Registro efetuado com sucesso!");
@@ -67,11 +67,11 @@ class TrabalhadorController extends Controller
 
         $portfolios = null;
 
-        if($user->tipo_usuarios_id !== 2){
+        if($user->id_tipo_usuario !== 2){
             return redirect( route("home"))->with("error", "Seu usuário não pode acessar esta página.");
         }
 
-        $endereco = Endereco::where("users_id",$user->id)->first();
+        $endereco = Endereco::where("id_usuario",$user->id_usuario)->first();
 
         if($endereco !== null){
             $cidade_id = $endereco->cidade;
@@ -95,12 +95,12 @@ class TrabalhadorController extends Controller
             $cidade = "";
         }
 
-        $portfolios = Portfolios::where("users_id",$user->id)->get();
+        $portfolios = Portfolios::where("id_usuario",$user->id_usuario)->get();
 
         foreach($portfolios as $port){
-            $trabalhos = Trabalhos::where("portfolio_id",$port->id)->get();
+            $trabalhos = Trabalhos::where("id_portfolio",$port->id_portfolio)->get();
             foreach($trabalhos as $trab){
-                $props[] = Proposta::where("trabalhos_id",$trab->id)->orderBy("created_at")->get();
+                $props[] = Proposta::where("id_trabalho",$trab->id_trabalho)->orderBy("created_at")->get();
                 foreach($props as $proposta){
                     foreach($proposta as $p){
                         $propostas[] = $p;
@@ -118,11 +118,11 @@ class TrabalhadorController extends Controller
 
         $user = Auth::user();
 
-        if($proposta->status_propostas_id !== 1 && $proposta->trabalhos->portfolio->users_id !== $user->id){
+        if($proposta->id_proposta_status !== 1 && $proposta->trabalhos->portfolio->id_usuario !== $user->id_usuario){
             return redirect()->back()->with("error", "Você não pode executar esta ação.");
         }
 
-        $proposta->status_propostas_id = 2;
+        $proposta->id_proposta_status = 2;
         $proposta->save();
 
         return redirect()->back()->with("sucesso","Proposta Aceita com sucesso! Seu contato será liberado para o cliente.");
@@ -135,12 +135,12 @@ class TrabalhadorController extends Controller
 
         $user = Auth::user();
 
-        if($proposta->status_propostas_id !== 1 && $proposta->trabalhos->portfolio->users_id !== $user->id){
+        if($proposta->id_proposta_status !== 1 && $proposta->trabalhos->portfolio->id_usuario !== $user->id_usuario){
             return redirect()->back()->with("error", "Você não pode executar esta ação.");
         }
 
         
-        $proposta->status_propostas_id = 3;
+        $proposta->id_proposta_status = 3;
         $proposta->save();
 
         return redirect()->back()->with("sucesso","Proposta Recusada com sucesso!");

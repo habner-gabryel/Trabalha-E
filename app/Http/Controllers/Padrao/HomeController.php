@@ -26,23 +26,24 @@ class HomeController extends Controller
 
         if($request->categoria_search !== null && $request->categoria_search !== ""){
 
-            $portfolios = Portfolios::select("id")->where("categorias_id",$request->categoria_search)->get();
+            $portfolios = Portfolios::select("id_portfolio")->where("id_categoria",$request->categoria_search)->get();
 
         } else if($request->user_search !== null){
 
-            $user_search = User::select("id")->where("nome","LIKE","%".$request->user_search."%")->get();
-            $portfolios = Portfolios::select("id")->whereIn("users_id",$user_search)->get();
+            $user_search = User::select("id_usuario")->where("nome","LIKE","%".$request->user_search."%")->get();
+            $portfolios = Portfolios::select("id_portfolio")->whereIn("id_usuario",$user_search)->get();
 
         } else {
 
-            $portfolios = Portfolios::select("id")->get();
+            $portfolios = Portfolios::select("id_portfolio")->get();
         
         }
         
-        $trabalhos = Trabalhos::whereIn("portfolio_id",$portfolios)->where("status",1)->get();
+        $trabalhos = Trabalhos::whereIn("id_portfolio",$portfolios)->where("status",1)->get();
 
         return view('pages\padrao\home', compact('categorias', "trabalhos", "user"));
     }
+
     public function logout(Request $request)
     {
         Auth::logout();

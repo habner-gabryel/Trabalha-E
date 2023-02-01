@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Categorias extends Model
 {
-    public $table = "categorias";
+    public $table = "tb_categoria";
     public $timestamps = false;
 
     

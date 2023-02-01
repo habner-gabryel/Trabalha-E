@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background: repeating-linear-gradient(283deg,#020126 30%, #020140 50%, #020132 50%, #042159 70%);   ;
+            background: repeating-linear-gradient(283deg,#020126 30%, #020140 50%, #020132 50%, #042159 70%);
             color: #F28A2E;
             font-weight: 200;
             height: 100vh;
@@ -149,19 +149,19 @@
 
         .trabalhos_show {
             height: 420px;
-            width: 260px;
-            margin-left: 15px;
+            width: 280px;
             font-size: 12;
-            transition-duration: 0.5s;
-            margin-bottom: 60px; 
-            border: solid 1px grey;
-            background-color: RGB(250,250,250);
-            border-radius: 5px;
+            transition-duration: 0.2s;
+            margin-bottom: 60px;
+            border-right-style: solid;
+            border-left-style: solid;
+            border-color: #ffff;
         }
 
         .trabalhos_show:hover {
-            transform: scale(1.1);
-            z-index: 2 !important;
+            border-right-style: solid;
+            border-left-style: solid;
+            border-color: rgb(237, 231, 231);
         }
 
         .encapsulamento_img{

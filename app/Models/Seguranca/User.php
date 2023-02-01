@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     public $timestamps = false;
-    protected $table="users";
+    protected $table="tb_usuario";
 
     use Notifiable;
 

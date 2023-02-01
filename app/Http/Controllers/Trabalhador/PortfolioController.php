@@ -29,8 +29,8 @@ class PortfolioController extends Controller
 
         $portf = new Portfolios();
 
-        $portf->users_id        = $user->id;
-        $portf->categorias_id   = $request->categoria;
+        $portf->id_usuario      = $user->id_usuario;
+        $portf->id_categoria    = $request->categoria;
         $portf->status          = 1;
         $portf->descricao       = $request->descricao;
         $portf->save();
@@ -42,7 +42,7 @@ class PortfolioController extends Controller
     {
         $portf = Portfolios::find($id);
 
-        $trabalhos = Trabalhos::where("portfolio_id",$portf->id)->get();
+        $trabalhos = Trabalhos::where("id_portfolio",$portf->id_portfolio)->get();
 
         return view("pages/trabalhador/portfolio_show", compact("portf","trabalhos"));
     }

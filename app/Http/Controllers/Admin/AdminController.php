@@ -16,7 +16,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nome'      => 'required',
+            'nome'      => 'required|unique:tb_categoria',
             'descricao' => 'required'
         ]);
 

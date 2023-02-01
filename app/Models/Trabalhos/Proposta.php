@@ -7,18 +7,20 @@ use Illuminate\Support\Facades\DB;
 
 class Proposta extends Model
 {
+    public $table = "tb_proposta";
+
     public function users()
     {
-        return $this->belongsTo(User::class,"users_id");
+        return $this->belongsTo(User::class,"id_usuario");
     }
 
     public function trabalhos()
     {
-        return $this->belongsTo(Trabalhos::class, "trabalhos_id");
+        return $this->belongsTo(Trabalhos::class, "id_trabalho");
     }
 
     public function status()
     {
-        return $this->belongsTo(StatusPropostas::class, "status_propostas_id");
+        return $this->belongsTo(StatusPropostas::class, "id_proposta_status");
     }
 }

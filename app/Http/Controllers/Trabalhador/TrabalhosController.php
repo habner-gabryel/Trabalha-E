@@ -18,7 +18,7 @@ class TrabalhosController extends Controller
     {
         $user = Auth::user();
         
-        $portfolios = Portfolios::where("users_id", $user->id)->get();
+        $portfolios = Portfolios::where("id_usuario", $user->id_usuario)->get();
         
         return view("pages/trabalhador/cadastrar_trabalho", compact("portfolios"));
     }
@@ -41,7 +41,7 @@ class TrabalhosController extends Controller
         $trab->nome         = $request->nome;
         $trab->descricao    = $request->descricao;
         $trab->status       = 1;
-        $trab->portfolio_id = $request->portfolio;
+        $trab->id_portfolio = $request->portfolio;
         
         
         if($request->hasFile("imagem")){
