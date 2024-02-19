@@ -54,7 +54,7 @@ class ClienteController extends Controller
         $endereco->id_usuario   = $user->id_usuario;
         $endereco->save();
 
-        
+
         return redirect( route("login"))->with("sucesso", "Registro efetuado com sucesso!");
     }
 
@@ -85,7 +85,7 @@ class ClienteController extends Controller
 
     public function perfil_privado()
     {
-        
+
         $user = Auth::user();
 
         if($user->id_tipo_usuario !== 3){
